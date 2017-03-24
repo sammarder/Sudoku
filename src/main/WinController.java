@@ -10,14 +10,14 @@ public class WinController extends WindowAdapter implements IController, IObserv
 	private WinView view;
 	private StatsModel statsModel;
 	private ArrayList<IObserver> observers;
-	
+
 	public WinController(WinModel model, WinView view, StatsModel statsModel){
 		this.model = model;
 		this.view = view;
 		this.statsModel = statsModel;
 		this.observers = new ArrayList<IObserver>();
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String actionCommand = event.getActionCommand();
@@ -49,8 +49,8 @@ public class WinController extends WindowAdapter implements IController, IObserv
 	}
 
 	@Override
-	public void windowClosing (WindowEvent e) { 
-		System.exit(0); 
+	public void windowClosing (WindowEvent e) {
+		System.exit(0);
 	}
 
 	@Override

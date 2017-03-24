@@ -23,21 +23,21 @@ public class GameView{
 	private JFrame mainFrame;
 
 	public GameView(GameModel gameModel){
-		timer = new JLabel("00:00");		
+		timer = new JLabel("00:00");
 		game = new JTable(gameModel);
 		int edge = game.getRowHeight();
 		edge = 2 * edge;
 		game.setRowHeight(edge);
 		for (int i = 0; i < 9; i++){
 			game.getColumnModel().getColumn(i).setPreferredWidth(edge);
-		}	
-		
-		JPanel northPanel = createNorthPanel();		
-		JPanel centerPanel = createCenterPanel();		
-		JPanel southPanel = createSouthPanel();		
-		mainFrame = createMainFrame(northPanel, centerPanel, southPanel);				
+		}
+
+		JPanel northPanel = createNorthPanel();
+		JPanel centerPanel = createCenterPanel();
+		JPanel southPanel = createSouthPanel();
+		mainFrame = createMainFrame(northPanel, centerPanel, southPanel);
 	}
-	
+
 	private JFrame createMainFrame(JPanel northPanel, JPanel centerPanel, JPanel southPanel) {
 		JFrame frame = new JFrame ("Sudoku Game");
 		frame.add(northPanel, BorderLayout.NORTH);
@@ -51,7 +51,7 @@ public class GameView{
 		JPanel panel = new JPanel();
 		check = new JButton("Check");
 		check.setActionCommand(GAME_CHECK);
-		clear = new JButton("Clear"); 
+		clear = new JButton("Clear");
 		clear.setActionCommand(GAME_CLEAR);
 		save = new JButton("Save");
 		save.setActionCommand(GAME_SAVE);
@@ -82,7 +82,6 @@ public class GameView{
 		return panel;
 	}
 
-	
 	public void addControl(IController controller, IController saveController){
 		clear.addActionListener(controller);
 		check.addActionListener(controller);
@@ -90,7 +89,7 @@ public class GameView{
 		save.addActionListener(saveController);
 		mainFrame.addWindowListener(controller);
 	}
-	
+
 	public void update(){
 		this.game.repaint();
 	}
@@ -98,11 +97,11 @@ public class GameView{
 	public void updateTimer(String time) {
 		this.timer.setText(time);
 	}
-	
+
 	public void hide(int i){
 		numberTracker.get(i).setVisible(false);
 	}
-	
+
 	public void toggleScreen(){
 		this.mainFrame.setVisible(!mainFrame.isVisible());
 	}

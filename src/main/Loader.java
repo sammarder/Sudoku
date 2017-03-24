@@ -12,7 +12,7 @@ public class Loader {
 	private int[] originalIndicies;
 	private PuzzleValidator validator;
 	private String[][] puzzle;
-	
+
 	public Loader(GameModel gameModel, PuzzleValidator validator){
 		this.gameModel = gameModel;
 		this.data = new Vector<String>();
@@ -20,7 +20,7 @@ public class Loader {
 		this.originalIndicies = new int[]{11,12,13,14,15,16,17,18,19};
 		this.validator = validator;
 	}
-	
+
 	public void load(File file){
 		Scanner fileScanner = null;
 		try {

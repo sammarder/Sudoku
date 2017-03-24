@@ -13,7 +13,7 @@ public class LoadController extends WindowAdapter implements IController, ISubje
 	private LoadView view;
 	private ArrayList<IObserver> observers;
 	private LoadModel model;
-	
+
 	public LoadController(LoadView view, LoadModel model){
 		this.view = view;
 		this.model = model;
@@ -49,8 +49,8 @@ public class LoadController extends WindowAdapter implements IController, ISubje
 	}
 
 	@Override
-	public void windowClosing (WindowEvent e) { 
-		System.exit(0); 
+	public void windowClosing (WindowEvent e) {
+		System.exit(0);
 	}
 
 	@Override

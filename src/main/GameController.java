@@ -23,7 +23,7 @@ public class GameController extends WindowAdapter implements IController, ISubje
 	private LoadModel loadModel;
 	private SaveModel saveModel;
 	private Loader loader;
-	
+
 	public GameController(GameModel model, GameView view, WinModel winModel, LoadModel loadModel, 
 			SaveModel saveModel, Loader loader){
 		this.model = model;
@@ -45,9 +45,9 @@ public class GameController extends WindowAdapter implements IController, ISubje
 				clockTimer();
 				count();
 			}
-		});	
+		});
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String actionCommand = event.getActionCommand();
@@ -85,7 +85,7 @@ public class GameController extends WindowAdapter implements IController, ISubje
 	}
 
 	private void play() {
-		toggleScreen();	
+		toggleScreen();
 		resetTimer();
 		gameTimer.start();
 	}
@@ -95,7 +95,7 @@ public class GameController extends WindowAdapter implements IController, ISubje
 			winModel.setTime(model.getTime());
 			winModel.setPuzzleId(model.getId());
 			notifyObservers();
-			toggleScreen();			
+			toggleScreen();
 		}
 	}
 
@@ -107,7 +107,7 @@ public class GameController extends WindowAdapter implements IController, ISubje
 	private void clear() {
 		model.resetPuzzle();
 		resetTimer();
-		view.update();		
+		view.update();
 	}
 
 	private void save() {
@@ -115,32 +115,32 @@ public class GameController extends WindowAdapter implements IController, ISubje
 		gameTimer.stop();
 		toggleScreen();
 	}
-	
+
 	private void incrementTimer() {
 		seconds++;
 		if (seconds == 60){
 			seconds = 0;
 			minutes++;
-		}		
-	}	
-	
+		}
+	}
+
 	private void clockTimer(){
 		String time = formatTime(minutes,seconds);
 		view.updateTimer(time);
 		model.setTime(time);
 	}
-	
+
 	private String formatTime(int min, int sec) {
 		String time = "";
 		if (min < 10){
-			time = time + "0" + min; 
+			time = time + "0" + min;
 		}
 		else {
 			time = time + min;
 		}
 		time = time + ":";
 		if (sec < 10){
-			time = time + "0" + sec; 
+			time = time + "0" + sec;
 		}
 		else {
 			time = time + sec;
@@ -159,16 +159,16 @@ public class GameController extends WindowAdapter implements IController, ISubje
 			}
 		}
 	}
-	
+
 	public void toggleScreen() {
-		view.toggleScreen();		
-	}	
-	
-	@Override
-	public void windowClosing (WindowEvent e) { 
-		System.exit(0); 
+		view.toggleScreen();
 	}
-	
+
+	@Override
+	public void windowClosing (WindowEvent e) {
+		System.exit(0);
+	}
+
 	private void loadGame(File file){
 		if (!file.equals(null)){
 			loader.load(file);

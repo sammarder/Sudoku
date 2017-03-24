@@ -77,7 +77,7 @@ public class GameModel extends AbstractTableModel{
 			puzzle[arg1][arg2] = newEntry;
 		}
 	}
-	
+
 	private boolean isValid(String newValue, int arg1, int arg2) {
 		if (!(arg1 < 9)){
 			return false;
@@ -96,11 +96,11 @@ public class GameModel extends AbstractTableModel{
 		}
 		return true;
 	}
-	
+
 	public String getTime(){
 		return gameTimer;
 	}
-	
+
 	public void setTime(String gameTimer) {
 		this.gameTimer = gameTimer;
 	}
@@ -108,7 +108,7 @@ public class GameModel extends AbstractTableModel{
 	public boolean isValid() {
 		return validator.check(puzzle);
 	}
-	
+
 	public void setPuzzle(String[][] puzzle){
 		this.puzzle = puzzle;
 		this.original = puzzle;
@@ -117,7 +117,7 @@ public class GameModel extends AbstractTableModel{
 	public void resetPuzzle() {
 		puzzle = hardCopy(original);
 	}
-	
+
 	public String toString(){
 		String myString = this.gameTimer + " " + this.id + "\n";
 		myString = myString + puzzleToString() + "\n" + originalToString();
@@ -127,7 +127,7 @@ public class GameModel extends AbstractTableModel{
 
 	private String originalToString() {
 		String returnString = "";
-		for (int i = 0; i < original.length; i++){			
+		for (int i = 0; i < original.length; i++){
 			for (int j = 0; j < original[i].length; j++){
 				if (original[j][i].equals("")){
 					returnString  = returnString + " ,";
@@ -143,7 +143,7 @@ public class GameModel extends AbstractTableModel{
 
 	private String puzzleToString() {
 		String returnString = "";
-		for (int i = 0; i < puzzle.length; i++){			
+		for (int i = 0; i < puzzle.length; i++){
 			for (int j = 0; j < puzzle[i].length; j++){
 				if (puzzle[j][i].equals("")){
 					returnString = returnString + " ,";
@@ -160,7 +160,7 @@ public class GameModel extends AbstractTableModel{
 	public String getId() {
 		return id;
 	}
-	
+
 	public void count(){
 		count = new int[]{0,0,0,0,0,0,0,0,0};
 		for (int i = 0; i < puzzle.length; i++){
@@ -174,15 +174,15 @@ public class GameModel extends AbstractTableModel{
 			}
 		}
 	}
-	
+
 	public int getCount(int i){
 		return count[i];
 	}
-	
+
 	public void setId(String id){
 		this.id = id;
 	}
-	
+
 	public void setOriginalAt(String value, int arg1, int arg2){
 		original[arg1][arg2] = value;
 	}

@@ -19,7 +19,7 @@ public class CreateGameView {
 	private JButton close;
 	private JButton help;
 	private JButton play;
-	
+
 	public CreateGameView(CreateGameModel createGameModel){
 		puzzle = new JTable(createGameModel);
 		int edge = puzzle.getRowHeight();
@@ -32,7 +32,7 @@ public class CreateGameView {
 		JPanel southPanel = createSouthPanel();
 		mainFrame = createMainFrame(northPanel, southPanel);
 	}
-	
+
 	private JPanel createSouthPanel() {
 		save = new JButton("Save");
 		save.setActionCommand(CREATE_SAVE);
@@ -57,7 +57,7 @@ public class CreateGameView {
 		panel.add(puzzle);
 		return panel;
 	}
-	
+
 	private JFrame createMainFrame(JPanel northPanel, JPanel southPanel) {
 		JFrame frame = new JFrame("Create New Game");
 		frame.add(northPanel, BorderLayout.NORTH);
@@ -65,7 +65,7 @@ public class CreateGameView {
 		frame.pack();
 		return frame;
 	}
-	
+
 	public void toggleScreen() {
 		mainFrame.setVisible(!mainFrame.isVisible());
 	}

@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class LoadView {
-	
+
 	private JFileChooser fileChooser;
 	private JFrame mainFrame;
 
@@ -17,7 +17,7 @@ public class LoadView {
 		this.fileChooser = new JFileChooser("/home/ssm77/Public/");
 		JPanel northPanel = createNorthPanel();
 		this.mainFrame = createMainFrame(northPanel);
-		
+
 	}
 
 	private JFrame createMainFrame(JPanel northPanel) {

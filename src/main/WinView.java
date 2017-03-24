@@ -18,10 +18,10 @@ public class WinView {
 	private JButton save;
 	private JButton cancel;
 
-	public WinView(WinModel model){				
-		JPanel northPanel = createNorthPanel();		
-		JPanel centerPanel = createCenterPanel();		
-		JPanel southPanel = createSouthPanel();		
+	public WinView(WinModel model){
+		JPanel northPanel = createNorthPanel();
+		JPanel centerPanel = createCenterPanel();
+		JPanel southPanel = createSouthPanel();
 		mainFrame = createMainFrame(northPanel, centerPanel, southPanel);
 	}
 
@@ -39,7 +39,7 @@ public class WinView {
 		cancel.setActionCommand(WIN_CANCEL);
 		JPanel panel = new JPanel();
 		//panel.setLayout(new GridLayout(0, 2));
-		panel.add(save);		
+		panel.add(save);
 		panel.add(cancel);
 		return panel;
 	}

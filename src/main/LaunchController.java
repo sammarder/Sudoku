@@ -7,12 +7,12 @@ import java.awt.event.WindowEvent;
 
 
 public class LaunchController extends WindowAdapter implements IController{
-	private LaunchView view;	
+	private LaunchView view;
 
 	public LaunchController(LaunchView view){
 		this.view = view;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String actionCommand = event.getActionCommand();
@@ -38,14 +38,14 @@ public class LaunchController extends WindowAdapter implements IController{
 			toggleScreen();
 			break;
 		}
-	}	
-	
+	}
+
 	public void toggleScreen(){
 		view.toggleScreen();
 	}
-	
+
 	@Override
-	public void windowClosing (WindowEvent e) { 
-		System.exit(0); 
+	public void windowClosing (WindowEvent e) {
+		System.exit(0);
 	}
 }

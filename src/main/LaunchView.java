@@ -28,8 +28,8 @@ public class LaunchView{
 		play.setActionCommand(LAUNCH_PLAY);
 		stats.setActionCommand(LAUNCH_STATS);
 		JPanel labelPanel = createLabelPanel();
-		JPanel buttonPanel = createButtonPanel();		
-		mainFrame = createMainFrame(labelPanel, buttonPanel);		
+		JPanel buttonPanel = createButtonPanel();
+		mainFrame = createMainFrame(labelPanel, buttonPanel);
 	}
 
 	private JPanel createLabelPanel() {
@@ -56,7 +56,7 @@ public class LaunchView{
 		return frame;
 	}
 
-	public void addControllers(IController launchController, IController gameController, 
+	public void addControllers(IController launchController, IController gameController,
 			IController statsController, IController createGameController, IController loadController){
 		create.addActionListener(launchController);
 		create.addActionListener(createGameController);

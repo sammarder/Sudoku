@@ -9,11 +9,11 @@ public class WinModel {
 	public void setName(String newName) {
 		this.name = newName;
 	}
-	
+
 	public void setTime(String newTime){
 		this.time = newTime;
 	}
-	
+
 	public void setPuzzleId(String newPuzzleId){
 		this.puzzleId = newPuzzleId;
 	}

@@ -9,15 +9,15 @@ public class CreateGameController extends WindowAdapter implements IController {
 	private CreateGameModel model;
 	private GameModel gameModel;
 	private SaveModel saveModel;
-	
-	public CreateGameController(CreateGameView view, CreateGameModel model, 
+
+	public CreateGameController(CreateGameView view, CreateGameModel model,
 			GameModel gameModel, SaveModel saveModel){
 		this.view = view;
 		this.model = model;
 		this.gameModel = gameModel;
 		this.saveModel = saveModel;
 	}
-	
+
 	public void toggleScreen() {
 		view.toggleScreen();
 	}
@@ -58,7 +58,7 @@ public class CreateGameController extends WindowAdapter implements IController {
 		if(model.isValid()){
 			saveModel.save(model.toString());
 			toggleScreen();
-		}		
+		}
 	}
 
 	private void play() {
@@ -73,7 +73,7 @@ public class CreateGameController extends WindowAdapter implements IController {
 	}
 
 	@Override
-	public void windowClosing (WindowEvent e) { 
-		System.exit(0); 
+	public void windowClosing (WindowEvent e) {
+		System.exit(0);
 	}
 }
