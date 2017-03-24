@@ -6,7 +6,7 @@ public class PuzzleValidator {
 	private static final String Digit = "\\d";
 	private String[][] puzzle;
 	private int[][] indicies;
-	
+
 	public boolean check(String[][] puzzle){
 		this.puzzle = puzzle;
 		this.indicies = new int[][]{{0,1,2},{3,4,5},{6,7,8}};
@@ -22,14 +22,14 @@ public class PuzzleValidator {
 		return true;
 	}
 
-	private boolean columnCheck() {		
+	private boolean columnCheck() {
 		//puzzle[row][column]
 		Vector<String> possibleValues = new Vector<String>();
-		for (int column = 0; column < puzzle.length; column++){			
+		for (int column = 0; column < puzzle.length; column++){
 			for (int row = 0; row < puzzle.length; row++){
 				if (puzzle[row][column].matches(Digit)){
 					possibleValues.add(puzzle[row][column]);
-				}				
+				}
 			}
 			if (!noDuplicate(possibleValues)){
 				return false;
@@ -65,7 +65,6 @@ public class PuzzleValidator {
 				}
 				possibleValues.removeAllElements();
 			}
-			
 		}
 		return true;
 	}

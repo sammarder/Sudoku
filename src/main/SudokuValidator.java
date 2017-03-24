@@ -4,7 +4,7 @@ public class SudokuValidator {
 	private String[] digits;
 	private int[][] indicies;
 	private String[][] puzzle;
-	
+
 	public SudokuValidator(){
 		this.digits = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 		this.indicies = new int[][]{{0,1,2},{3,4,5},{6,7,8}};
@@ -32,13 +32,13 @@ public class SudokuValidator {
 			xCoords = indicies[i];
 			for (int j = 0; j < 3; j++){
 				yCoords = indicies[j];
-				String[] box = populateArray(xCoords, yCoords);				
+				String[] box = populateArray(xCoords, yCoords);
 				if(!isUnique(box)){
 					return false;
 				}
 			}
 		}
-		return true;		
+		return true;
 	}
 
 	private String[] populateArray(int[] xCoords, int[] yCoords) {
@@ -53,7 +53,7 @@ public class SudokuValidator {
 		return array;
 	}
 
-	private boolean checkColumn() {		
+	private boolean checkColumn() {
 		for (int x = 0; x < 9; x++){
 			String[] column = new String[9];
 			for (int y = 0; y < 9; y++){
@@ -64,10 +64,7 @@ public class SudokuValidator {
 			}
 		}
 		return true;
-		
 	}
-
-	
 
 	private boolean checkRow() {
 		for (int i = 0; i < puzzle.length; i++){
@@ -75,13 +72,13 @@ public class SudokuValidator {
 				return false;
 			}
 		}
-		return true;		
+		return true;
 	}
-	
+
 	private boolean isUnique(String[] column) {
 		String myColumn = createString(column);
 		for (int i = 0; i < this.digits.length; i++){
-			if (!myColumn.contains(this.digits[i])){				
+			if (!myColumn.contains(this.digits[i])){
 				return false;
 			}
 		}
@@ -95,5 +92,4 @@ public class SudokuValidator {
 		}
 		return returnString;
 	}
-
 }
