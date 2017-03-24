@@ -45,10 +45,7 @@ public class CreateGameModel extends AbstractTableModel{
 	}
 
 	private boolean isValid(String newValue, int arg1, int arg2) {
-		if (!(arg1 < 9)){
-			return false;
-		}
-		if (!(arg2 < 9)){
+		if (!(arg1 < 9) || !(arg2 < 9)){
 			return false;
 		}
 		if (!(newValue.length() == 1)){
@@ -75,13 +72,13 @@ public class CreateGameModel extends AbstractTableModel{
 		for (int i = 0; i < puzzle.length; i++){
 			for (int j = 0; j < puzzle[i].length; j++){
 				if (puzzle[j][i].equals("")){
-					returnString = returnString + " ,";
+					returnString += " ,";
 				}
 				else{
-					returnString = returnString + puzzle[j][i] + ",";
+					returnString += puzzle[j][i] + ",";
 				}
 			}
-			returnString = returnString + "\n";
+			returnString += "\n";
 		}
 		return returnString;
 	}
