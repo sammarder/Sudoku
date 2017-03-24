@@ -10,22 +10,14 @@ public class PuzzleValidator {
 	public boolean check(String[][] puzzle){
 		this.puzzle = puzzle;
 		this.indicies = new int[][]{{0,1,2},{3,4,5},{6,7,8}};
-		if(!rowCheck()){
-			return false;
-		}
-		else if (!boxCheck()){
-			return false;
-		}
-		else if (!columnCheck()){
-			return false;
-		}
-		return true;
+		return rowCheck() && boxCheck() && columnCheck();
 	}
 
+        //This could have used a Set instead of a vector
 	private boolean columnCheck() {
 		//puzzle[row][column]
-		Vector<String> possibleValues = new Vector<String>();
 		for (int column = 0; column < puzzle.length; column++){
+			Vector<String> possibleValues = new Vector<String>();
 			for (int row = 0; row < puzzle.length; row++){
 				if (puzzle[row][column].matches(Digit)){
 					possibleValues.add(puzzle[row][column]);
@@ -34,7 +26,6 @@ public class PuzzleValidator {
 			if (!noDuplicate(possibleValues)){
 				return false;
 			}
-			possibleValues.removeAllElements();
 		}
 		return true;
 	}
@@ -52,18 +43,15 @@ public class PuzzleValidator {
 	}
 
 	private boolean boxCheck() {
-		Vector<String> possibleValues = new Vector<String>();
-		int[] xCoords;
-		int[] yCoords;
+		//3 is the length of each element of the indicies matrix
 		for (int i = 0; i < 3; i++){
-			xCoords = indicies[i];
+			int[] xCoords = indicies[i];
 			for (int j = 0; j < 3; j++){
-				yCoords = indicies[j];
-				possibleValues = populateVector(xCoords, yCoords);
+				int[] yCoords = indicies[j];
+				Vector<String> possibleValues = populateVector(xCoords, yCoords);
 				if (!noDuplicate(possibleValues)){
 					return false;
 				}
-				possibleValues.removeAllElements();
 			}
 		}
 		return true;
@@ -83,8 +71,8 @@ public class PuzzleValidator {
 	}
 
 	private boolean rowCheck() {
-		Vector<String> possibleValues = new Vector<String>();
 		for (int row = 0; row < this.puzzle.length; row++){
+			Vector<String> possibleValues = new Vector<String>();
 			for (int column = 0; column < puzzle[row].length; column++){
 				String value = puzzle[row][column];
 				if (value.matches(Digit)){
@@ -94,7 +82,6 @@ public class PuzzleValidator {
 			if (!noDuplicate(possibleValues)){
 				return false;
 			}
-			possibleValues.removeAllElements();
 		}
 		return true;
 	}

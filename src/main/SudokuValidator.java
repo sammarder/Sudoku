@@ -49,7 +49,7 @@ public class SudokuValidator {
 				array[index] = this.puzzle[yCoords[y]][xCoords[x]];
 				index++;
 			}
-		}		
+		}
 		return array;
 	}
 
